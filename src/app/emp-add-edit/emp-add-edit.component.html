@@ -1,0 +1,58 @@
+<div mat-dialog-title>
+    <h1 class="text-center">Employee Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)='onSubmitForm()'>
+<div mat-dialog-content   class="content">
+    
+        <div class="form-group">
+        <mat-form-field  >
+          <mat-label>Full name</mat-label>
+          <input matInput type="text" formControlName='fullName'>
+        </mat-form-field>
+    </div>
+    <div class="form-group">
+        <mat-form-field class="form-group" >
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName='email'>
+          </mat-form-field>
+        </div>
+<!--<div class="form-group">
+  <mat-form-field >
+    <mat-label>Date of birth</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dob">
+    <mat-datepicker-toggle matIconSuffix [for]="picker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+     </div>-->
+
+     <div class="form-group">
+     <mat-radio-group aria-label="Select an option" formControlName='gender'>
+         <mat-label> Gender </mat-label>
+        <mat-radio-button value="female">female</mat-radio-button>
+        <mat-radio-button value="male">male</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="form-group">
+        <mat-form-field >
+            <mat-label>Job </mat-label>
+            <mat-select  formControlName='job'>
+              <mat-option *ngFor='let val of job' [value]='val'>
+                {{val}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="form-group" >
+        <mat-label>Phone number</mat-label>
+        <input matInput type="text" formControlName='phone'>
+      </mat-form-field>
+    </div>
+
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]='false'>Cancel</button>
+    <button mat-raised-button color='primary' type="submit">{{data ? 'Update' : 'Add'}}</button>
+</div>
+</form>

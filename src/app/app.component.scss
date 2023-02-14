@@ -1,0 +1,38 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.table{
+  width: 100%;
+ 
+}
+.table-container{
+  width: 70%;
+  margin: auto;
+}
+.main-body{
+  margin-top: 50px;
+  
+}
+.matForm{
+  width: 40%;
+}
+.logo{
+  width: 50px;
+  height: 50px;
+  filter: invert(100%) sepia(0%) saturate(24%) hue-rotate(37deg) brightness(107%) contrast(105%);
+}
+.wrapper{
+  background: url('../assets/bg.jpg') no-repeat   center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+ 
+
+.toolbar{
+  background-color: #b6cddf5c;
+}
+.bgHead{
+  background-color: #b6cddf5c;
+}

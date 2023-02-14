@@ -1,0 +1,77 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "fullName": "Ouardi douha",
+      "email": "douha@gmail.com",
+      "gender": "female",
+      "job": "Manager",
+      "phone": "0647492020",
+      "id": 1
+    },
+    {
+      "fullName": "Ouardi Amine",
+      "email": "amine@gmail.com",
+      "gender": "male",
+      "job": "Analyste",
+      "phone": "123456789",
+      "id": 3
+    },
+    {
+      "fullName": "El bouroui fatimaZohra",
+      "email": "fati@live.fr",
+      "gender": "female",
+      "job": "programmer",
+      "phone": "0938838383",
+      "id": 4
+    },
+    {
+      "fullName": "Fakhar Hajae",
+      "email": "hajar@gmail.com",
+      "gender": "female",
+      "job": "Developper",
+      "phone": "0986543444",
+      "id": 5
+    },
+    {
+      "fullName": "El Achchi Younes",
+      "email": "younes@gmail.com",
+      "gender": "male",
+      "job": "Manager",
+      "phone": "9832234567",
+      "id": 6
+    },
+    {
+      "fullName": "Harrouch bouchra",
+      "email": "bouchra@gmail.com",
+      "gender": "female",
+      "job": "Analyste",
+      "phone": "0836363636",
+      "id": 8
+    },
+    {
+      "fullName": "nohaila ",
+      "email": "nohaila@gmail.fr",
+      "gender": "female",
+      "job": "programmer",
+      "phone": "0876543235",
+      "id": 9
+    }
+  ]
+}
