@@ -1,1 +1,11 @@
-<p>dialog works!</p>
+<h1 mat-dialog-title align='center'>{{data[0]}}</h1>
+
+
+<div mat-dialog-content style="font-weight: bold;" >
+  <p>{{data[1]}}</p>
+</div>
+<div mat-dialog-actions align='center'>
+  <button mat-raised-button  color="warn" (click)='onConfirm(false)' >No</button>
+  <button  mat-raised-button color="primary" (click)='onConfirm(true)' cdkFocusInitial >Yes</button>
+</div>
+

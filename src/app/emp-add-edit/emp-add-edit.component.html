@@ -5,16 +5,24 @@
 <div mat-dialog-content   class="content">
     
         <div class="form-group">
-        <mat-form-field  >
+        <mat-form-field  text-red  >
           <mat-label>Full name</mat-label>
           <input matInput type="text" formControlName='fullName'>
+          
         </mat-form-field>
+        <div class="error" style="margin-top: -16px;">
+        <span *ngIf='fullName && fullName.touched && fullName.invalid' class='text-danger'> Type your fullName</span>
+      </div>
     </div>
+    
     <div class="form-group">
-        <mat-form-field class="form-group" >
+        <mat-form-field  text-red  >
             <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName='email'>
+            <input matInput type="email" formControlName='email' >
           </mat-form-field>
+          <div class="error" style="margin-top: -16px;">
+            <span *ngIf='email && email.touched && email.invalid' class='text-danger'> Invalid email </span>
+          </div>
         </div>
 <!--<div class="form-group">
   <mat-form-field >
@@ -26,33 +34,40 @@
 </mat-form-field>
      </div>-->
 
-     <div class="form-group">
+     <div class="form-group"  style="margin-top: -24px;">
      <mat-radio-group aria-label="Select an option" formControlName='gender'>
          <mat-label> Gender </mat-label>
         <mat-radio-button value="female">female</mat-radio-button>
         <mat-radio-button value="male">male</mat-radio-button>
       </mat-radio-group>
+    
     </div>
-    <div class="form-group">
+    <div class="form-group"   style="margin-top: -18px;">
         <mat-form-field >
             <mat-label>Job </mat-label>
             <mat-select  formControlName='job'>
-              <mat-option *ngFor='let val of job' [value]='val'>
+              <mat-option *ngFor='let val of jobList' [value]='val'>
                 {{val}}
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <div class="error"  style="margin-top: -16px;">
+            <span *ngIf='job && job.touched && job.invalid' class='text-danger'> Select your job title</span>
+          </div>
     </div>
     <div class="form-group">
-      <mat-form-field class="form-group" >
+      <mat-form-field  >
         <mat-label>Phone number</mat-label>
         <input matInput type="text" formControlName='phone'>
       </mat-form-field>
+      <div class="error"  style="margin-top: -16px;">
+        <span *ngIf='phone && phone.touched && phone.invalid' class='text-danger'> Invalid phone number </span>
+      </div>
     </div>
 
 </div>
 <div mat-dialog-actions class="action">
     <button mat-raised-button type="button" [mat-dialog-close]='false'>Cancel</button>
-    <button mat-raised-button color='primary' type="submit">{{data ? 'Update' : 'Add'}}</button>
+    <button mat-raised-button color='primary' type="submit" [disabled]="!empForm.valid">{{data ? 'Update' : 'Add'}}</button>
 </div>
 </form>

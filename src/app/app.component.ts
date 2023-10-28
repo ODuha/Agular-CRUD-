@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from './core/core.service';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ export class AppComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private _dialog:MatDialog, private _empservice:EmployeeService,
-    private _coreservice:CoreService){}
+    private _coreservice:CoreService ,
+    ){}
 
   openAddEditEmpForm(){
    const dialogRef = this._dialog.open(EmpAddEditComponent);
@@ -68,16 +70,30 @@ export class AppComponent implements OnInit {
   }
 
   deleteEmployee(id:number){
-    this._empservice.deleteEmployee(id).subscribe({
-      next:(res) => {
-      this._coreservice.openSnackBar('Employee deleted','Done');
-      this.getEmployeesList();
-
-      },
-      error:console.log,
+    const dialogRef = this._dialog.open(DialogComponent, {
+      height:'200px',
+      data:
+      ['Delete employee','Are you sure to delete this employee?']
     });
 
+    dialogRef.afterClosed().subscribe({
+      next:(result:boolean) => {
+        if(result){
+          this._empservice.deleteEmployee(id).subscribe({
+            next:(res) => {
+            this._coreservice.openSnackBar('Employee deleted','Done');
+            this.getEmployeesList();
+      
+            },
+            error:console.log,
+          });
+        }
+      }
+      });
   }
+  
+
+  
   openEditForm(data:any){
     const dialogRef =this._dialog.open(EmpAddEditComponent , {
      data,
@@ -88,6 +104,14 @@ export class AppComponent implements OnInit {
           this.getEmployeesList();
         }
       },
+    });
+  }
+
+
+  openDialog() {
+    this._dialog.open(DialogComponent, {
+      width:'40%'
+      
     });
   }
 }

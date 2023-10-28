@@ -6,19 +6,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
+  private apiUrl = 'http://localhost:8080/employees'; // Replace with your back-end API URL
 
-  constructor(private _http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  addEmployee(data:any):Observable<any>{
-    return this._http.post('http://localhost:3000/employees',data);
-  }
-  updateEmployee(id:number,data:any):Observable<any>{
-    return this._http.put(`http://localhost:3000/employees/${id}`,data);
-  }
+
   getEmployeeList():Observable<any>{
-    return this._http.get(' http://localhost:3000/employees');
+    return this.http.get(this.apiUrl);
   }
-  deleteEmployee(id:number):Observable<any>{
-    return this._http.delete(`http://localhost:3000/employees/${id}`);
+
+  getEmployeeById(id: number) {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  addEmployee(employee: any):Observable<any>{
+    return this.http.post(this.apiUrl,employee);
+  }
+
+  updateEmployee(id: number, updatedEmployee: any) {
+    return this.http.put(`${this.apiUrl}/${id}`, updatedEmployee);
+  }
+
+  deleteEmployee(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

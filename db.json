@@ -42,22 +42,6 @@
       "id": 4
     },
     {
-      "fullName": "Fakhar Hajae",
-      "email": "hajar@gmail.com",
-      "gender": "female",
-      "job": "Developper",
-      "phone": "0986543444",
-      "id": 5
-    },
-    {
-      "fullName": "El Achchi Younes",
-      "email": "younes@gmail.com",
-      "gender": "male",
-      "job": "Manager",
-      "phone": "9832234567",
-      "id": 6
-    },
-    {
       "fullName": "Harrouch bouchra",
       "email": "bouchra@gmail.com",
       "gender": "female",
@@ -72,6 +56,14 @@
       "job": "programmer",
       "phone": "0876543235",
       "id": 9
+    },
+    {
+      "fullName": "ussef",
+      "email": "ussef@gmail.com",
+      "gender": "male",
+      "job": "programmer",
+      "phone": "0678543456",
+      "id": 10
     }
   ]
 }

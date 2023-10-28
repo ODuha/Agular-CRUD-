@@ -51,6 +51,7 @@ import { DialogComponent } from './dialog/dialog.component';
     MatSortModule,
     MatSnackBarModule,
     NgbModule,
+    MatDialogModule
     
    
   ],

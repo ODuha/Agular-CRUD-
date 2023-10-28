@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
 import { EmployeeService } from '../services/employee.service';
@@ -13,7 +13,9 @@ import { EmployeeService } from '../services/employee.service';
 export class EmpAddEditComponent implements OnInit {
 empForm:FormGroup;
 
-  job:String[]=[
+
+
+  jobList:String[]=[
   'Manager',
   'Analyste',
   'Developper',
@@ -28,11 +30,11 @@ empForm:FormGroup;
     private _coreservice:CoreService
     ) { 
     this.empForm=this._fb.group({
-      fullName:'',
-      email:'',
-      gender:'',
-      job:'',
-      phone:'',
+      fullName:  ['', [Validators.required] ],
+      email:  ['', [Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      gender:['',[ Validators.required ]],
+      job:['', [Validators.required] ],
+      phone:['', [Validators.required ]],
 
     })
   }
@@ -71,5 +73,22 @@ empForm:FormGroup;
       });
     }
   }}
+
+  
+get fullName() {
+    return this.empForm.controls['fullName'];
+}
+get email() {
+  return this.empForm.controls['email'];
+}
+get gender() {
+  return this.empForm.controls['gender'];
+}
+get job() {
+  return this.empForm.controls['job'];
+}
+get phone() {
+  return this.empForm.controls['fullname'];
+}
 
 }
